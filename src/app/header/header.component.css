@@ -1,0 +1,30 @@
+.header-container {
+    height: 400px;
+}
+
+.header-logo {
+    width: 150px;
+}
+
+.title-bar {
+    background-color: black;
+    display: flex;
+    justify-content: space-between;
+}
+
+button {
+    color: white;
+}
+
+.login-button {
+    color: #fff;
+    padding: 0;
+    width: 100px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    line-height: 24px;
+}
+
+.login-button span {
+    padding-left: 15px;
+}
