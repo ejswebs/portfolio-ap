@@ -1,15 +1,25 @@
 .header-container {
     height: 400px;
+    overflow: hidden;
 }
 
 .header-logo {
-    width: 150px;
+    justify-self: start;
 }
 
 .title-bar {
-    background-color: black;
-    display: flex;
+    color: #fff;
+    background-color: #000;
     justify-content: space-between;
+}
+
+.logo-container {
+    display: flex;
+    height: 100%;
+}
+
+.yo-programo {
+    line-height: 64px;
 }
 
 button {
@@ -27,4 +37,47 @@ button {
 
 .login-button span {
     padding-left: 15px;
+}
+
+.cover {
+    width: 100%;
+    height: calc(400px - 64px - 100px);
+}
+
+.profile-container {
+    display: flex;
+    height: 100px;
+    justify-content: space-between;
+}
+
+.profile-img {
+    height: 140px;
+    width: 140px;
+    border-radius: 50%;
+    position: relative;
+    top: -75px;
+    margin: 0 0 0 50px;
+}
+
+.header-name {
+    font-size: 40px;
+    line-height: 100px;
+}
+
+.header-prof {
+    font-size: 25px;
+    line-height: 100px;
+}
+
+.contact-button {
+    align-self: center;
+    font-size: 16px;
+    line-height: 30px;
+    height: 30px;
+    border: 1px solid #fff;
+    border-radius: 10px;
+    margin-right: 20px;
+    width: 90px;
+    padding: 0;
+    text-align: center;
 }
