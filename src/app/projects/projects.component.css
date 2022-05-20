@@ -61,7 +61,9 @@ mat-card-footer p {
 }
 
 .project-preview {
-    padding: 0 10%;
+    padding: 0 7%;
     height: 200px;
-    width: 90%;
+    width: 95%;
+    opacity: 80%;
+    border-radius: 15%;
 }
