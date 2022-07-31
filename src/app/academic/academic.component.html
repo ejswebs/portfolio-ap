@@ -1,149 +1,39 @@
 <section class="acad-container">
-    <h1>FORMACIÓN ACADÉMICA</h1>
-    <section class="acad-card-container">
-        <mat-card class="acad-card">
-            <mat-card-header>
-                <img mat-card-avatar class="acad-avatar" src="../../assets/img/logo-AP.png">
-                <mat-card-title>Desarrollador Full Stack</mat-card-title>
-                <mat-card-subtitle>Argentina Programa - ESPECIALIZACIÓN</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-footer>
-                <p class="acad-certificate">
-
-                </p>
-                <p class="acad-score">
-
-                </p>
-                <p class="acad-period">
-                    EN CURSO
-                </p>
-            </mat-card-footer>
-        </mat-card>
-        <mat-card class="acad-card">
-            <mat-card-header>
-                <img mat-card-avatar class="acad-avatar" src="../../assets/img/logo-UTN.png">
-                <mat-card-title>Ing. en Sistemas de Información</mat-card-title>
-                <mat-card-subtitle>Universidad Tecnológica Nacional - UNIVERSITARIO</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-footer>
-                <p class="acad-certificate">
-
-                </p>
-                <p class="acad-score">
-
-                </p>
-                <p class="acad-period">
-                    EN CURSO
-                </p>
-            </mat-card-footer>
-        </mat-card>
-        <mat-card class="acad-card">
-            <mat-card-header>
-                <img mat-card-avatar class="acad-avatar" src="../../assets/img/DidactiK-logo.png">
-                <mat-card-title>Habilidades para Lideres del Futuro</mat-card-title>
-                <mat-card-subtitle>Grupo Konecta - Capacitación Organizacional</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-footer>
-                <p class="acad-certificate">
-                    CERTIFICADO
-                </p>
-                <p class="acad-score">
-                    100/100
-                </p>
-                <p class="acad-period">
-                    10-2021
-                </p>
-            </mat-card-footer>
-        </mat-card>
-        <mat-card class="acad-card">
-            <mat-card-header>
-                <img mat-card-avatar class="acad-avatar" src="../../assets/img/logo-NET.png">
-                <mat-card-title>Diplomatura en Programación .Net</mat-card-title>
-                <mat-card-subtitle>Universidad Tecnológica Nacional - DIPLOMATURA</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-footer>
-                <p class="acad-certificate">
-                    CERTIFICADO
-                </p>
-                <p class="acad-score">
-                    100/100
-                </p>
-                <p class="acad-period">
-                    10-2021
-                </p>
-            </mat-card-footer>
-        </mat-card>
-        <mat-card class="acad-card">
-            <mat-card-header>
-                <img mat-card-avatar class="acad-avatar" src="../../assets/img/logo-AP.png">
-                <mat-card-title>#SéProgramar</mat-card-title>
-                <mat-card-subtitle>Cessi Argentina / Min. Desarrollo Productivo - CURSO</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-footer>
-                <p class="acad-certificate">
-                    CERTIFICADO
-                </p>
-                <p class="acad-score">
-                    100/100
-                </p>
-                <p class="acad-period">
-                    10-2021
-                </p>
-            </mat-card-footer>
-        </mat-card>
-        <mat-card class="acad-card">
-            <mat-card-header>
-                <img mat-card-avatar class="acad-avatar" src="../../assets/img/logo-Info.png">
-                <mat-card-title>Introducción a la Programación</mat-card-title>
-                <mat-card-subtitle>INFORMATORIO - Globant / POLO IT Chaco - CURSO</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-footer>
-                <p class="acad-certificate">
-                    CERTIFICADO
-                </p>
-                <p class="acad-score">
-                    100/100
-                </p>
-                <p class="acad-period">
-                    04-2022
-                </p>
-            </mat-card-footer>
-        </mat-card>
-        <mat-card class="acad-card">
-            <mat-card-header>
-                <img mat-card-avatar class="acad-avatar" src="../../assets/img/logo-JS.png">
-                <mat-card-title>Programación web con Javascript</mat-card-title>
-                <mat-card-subtitle>Universidad Tecnológica Nacional - ESPECIALIZACIÓN</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-footer>
-                <p class="acad-certificate">
-                    CERTIFICADO
-                </p>
-                <p class="acad-score">
-                    100/100
-                </p>
-                <p class="acad-period">
-                    07-2020
-                </p>
-            </mat-card-footer>
-        </mat-card>
-        <mat-card class="acad-card">
-            <mat-card-header>
-                <img mat-card-avatar class="acad-avatar" src="../../assets/img/logo-HTML-CSS.png">
-                <mat-card-title>Diseño Web Responsive HTML5 CSS3</mat-card-title>
-                <mat-card-subtitle>Universidad Tecnológica Nacional - ESPECIALIZACIÓN</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-footer>
-                <p class="acad-certificate">
-                    CERTIFICADO
-                </p>
-                <p class="acad-score">
-                    98/100
-                </p>
-                <p class="acad-period">
-                    06-2020
-                </p>
-            </mat-card-footer>
-        </mat-card>
-    </section>
+  <h1>
+    FORMACIÓN ACADÉMICA
+    <button *ngIf="auth" class="edit-button" mat-icon-button>
+      <mat-icon>edit</mat-icon>
+    </button>
+  </h1>
+  <section class="acad-card-container">
+    <mat-card *ngFor="let academic of academicData" class="acad-card">
+      <mat-card-header>
+        <img mat-card-avatar class="acad-avatar" [src]="academic.url_logo" />
+        <mat-card-title>{{ academic.titulo }}</mat-card-title>
+        <mat-card-subtitle>{{
+          instData[academic.institucion_id - 1]?.nombre
+        }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-footer>
+        <p class="acad-certificate">
+          <a [href]="academic?.url_certificado" target="_blank"
+            >{{ academic?.url_certificado && "CERTIFICADO" }}
+          </a>
+        </p>
+        <p class="acad-score">
+          {{
+            academic?.promedio > 0
+              ? academic?.promedio +
+                "/" +
+                (academic?.promedio > "10" ? "100" : "10")
+              : ""
+          }}
+        </p>
+        <p *ngIf="!academic?.fecha_fin" class="acad-period">EN CURSO</p>
+        <p *ngIf="academic?.fecha_fin" class="acad-period">
+          {{ academic.fecha_fin | date: "MM-yyyy" }}
+        </p>
+      </mat-card-footer>
+    </mat-card>
+  </section>
 </section>

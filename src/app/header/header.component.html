@@ -1,34 +1,57 @@
 <header class="header-container">
-    <mat-toolbar class='title-bar'>
-        <div class="logo-container">
-            <img class='header-logo' src='../../assets/img/APLogo.png' />
-            <div class="yo-programo">#YoProgramo</div>
-        </div>
-        <div class="menu-bar">
-            <button mat-icon-button>
-                <mat-icon>facebook</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>mail</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>rss_feed</mat-icon>
-            </button>
-            <button mat-icon-button>
-                <mat-icon>favorite</mat-icon>
-            </button>
-            <button mat-icon-button class="login-button">
-                <mat-icon>login</mat-icon><span>Login</span>
-            </button>
-        </div>
-    </mat-toolbar>
-    <img class='cover' src='../../assets/img/portada.png' />
-    <div class="profile-container">
-        <img class='profile-img' src='../../assets/img/profile.png' />
-        <div class="header-name">ENZO JOEL STEIER</div>
-        <div class="header-prof">--Desarrollador Web Full Stack--</div>
-        <button mat-stroked-button class="contact-button">
-            Contactame
-        </button>
+  <mat-toolbar class="title-bar">
+    <div class="logo-container">
+      <img class="header-logo" src="../../assets/img/APLogo.png" />
+      <div class="yo-programo">#YoProgramo</div>
     </div>
+    <div class="menu-bar">
+      <button mat-icon-button>
+        <a href="https://www.facebook.com/EnzoSteier" target="_blank">
+          <mat-icon>facebook</mat-icon>
+        </a>
+      </button>
+      <button mat-icon-button>
+        <a href="mailto:{{ personalData?.email }}">
+          <mat-icon>mail</mat-icon>
+        </a>
+      </button>
+      <button mat-icon-button>
+        <a href="https://www.instagram.com/enzosteierok/" target="_blank">
+          <mat-icon>favorite</mat-icon>
+        </a>
+      </button>
+      <button
+        mat-icon-button
+        type="button"
+        (click)="btnClick()"
+        class="login-button"
+      >
+        <mat-icon>{{ auth ? "logout" : "login" }}</mat-icon
+        ><span>{{ auth ? "Logout" : "Login" }}</span>
+      </button>
+    </div>
+  </mat-toolbar>
+  <img class="cover" [src]="personalData.url_portada" />
+  <div class="profile-container">
+    <img class="profile-img" [src]="personalData.url_foto" />
+    <div class="header-name">
+      {{ personalData.nombre + " " + personalData?.apellido }}
+    </div>
+    <div class="header-prof">--{{ experienceData?.puesto }}--</div>
+    <a
+      href="https://wa.me/5493624873131?text=Quiero%20contratarte%20para%20un%20proyecto%20millonario"
+      target="_blank"
+    >
+      <button
+        mat-stroked-button
+        class="contact-button"
+        href="https://wa.me/5493624873131"
+      >
+        Contactame
+      </button>
+    </a>
+    <button class="edit-button" *ngIf="auth" mat-icon-button>
+      <mat-icon>edit</mat-icon>
+    </button>
+  </div>
 </header>

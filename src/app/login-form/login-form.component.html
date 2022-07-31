@@ -1,0 +1,49 @@
+<section>
+  <div class="card loginForm" style="border-radius: 1rem">
+    <img class="login-logo" src="../../assets/img/APLogo.png" />
+    <form [formGroup]="form" (ngSubmit)="onSend($event)">
+      <div class="formContent">
+        <label class="form-label" for="typeUserX">Usuario</label>
+        <input
+          id="typeUserX"
+          class="form-control form-control-lg"
+          formControlName="email"
+        />
+      </div>
+      <div class="errorLabel">
+        <p
+          class="errorLabel"
+          *ngIf="Email?.errors && Email?.touched && Email?.hasError('required')"
+        >
+          El usuario es Admin
+        </p>
+      </div>
+      <div class="formContent">
+        <label class="form-label" for="typePasswordX">Contraseña</label>
+        <input
+          type="password"
+          id="typePasswordX"
+          class="form-control"
+          formControlName="password"
+        />
+      </div>
+      <div class="errorLabel">
+        <p
+          *ngIf="Password?.hasError('required') && Password?.touched"
+          class="errorLabel"
+        >
+          La contraseña es Admin
+        </p>
+      </div>
+      <div>
+        <div class="loginBtn">
+          <button type="button">
+            <a href="/portfolio">Invitado </a
+            >
+          </button>
+          <button type="submit">Login</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</section>

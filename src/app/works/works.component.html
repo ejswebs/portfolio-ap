@@ -1,89 +1,40 @@
 <section class="works-container">
-    <h1>EXPERIENCIA LABORAL</h1>
-    <section class="works-card-container">
-        <mat-card class="work-card">
-            <mat-card-header>
-                <img mat-card-avatar class="work-avatar" src="../../assets/img/Konecta-logo.png">
-                <mat-card-title>KONECTA</mat-card-title>
-                <mat-card-subtitle>Front End Developer</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>
-                    Desarrollador Front End utilizando React en conjunto con Material UI
-                </p>
-                <p>
-                    Desarrollo y Actualización contínua de EPIRON WEB. Una SPA de gestion de contenidos orientada a la
-                    Omnicanalidad.
-                </p>
-            </mat-card-content>
-            <mat-card-footer>
-                <p>
-                    DESDE 2021
-                </p>
-            </mat-card-footer>
-        </mat-card>
-        <mat-card class="work-card">
-            <mat-card-header>
-                <img mat-card-avatar class="work-avatar" src="../../assets/img/Trasciende-logo.png">
-                <mat-card-title>FUNDACION TRASCIENDE</mat-card-title>
-                <mat-card-subtitle>IT Consultant</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>
-                    Consultor Integral en Tecnologías de la Información.
-                </p>
-                <p>
-                    Despliegue de Plataformas de RRSS. Desarrollo de presencia digital. Infraestructura Computacional.
-                    Gestión de streaming y contenidos digitales.
-                </p>
-            </mat-card-content>
-            <mat-card-footer>
-                <p>
-                    DESDE 2019
-                </p>
-            </mat-card-footer>
-        </mat-card>
-        <mat-card class="work-card">
-            <mat-card-header>
-                <img mat-card-avatar class="work-avatar" src="../../assets/img/Konecta-logo.png">
-                <mat-card-title>KONECTA</mat-card-title>
-                <mat-card-subtitle>Remote Service Desk Team Leader</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>
-                    Coordinador de Equipo de Soporte Remoto a través de Chat
-                </p>
-                <p>
-                    Gestión y Elaboración de Guías de Contenidos. Coordinación, Capacitación y Monitoreo de
-                    un grupo de trabajo compuesto por 30 personas.
-                </p>
-            </mat-card-content>
-            <mat-card-footer>
-                <p>
-                    2020 a 2021
-                </p>
-            </mat-card-footer>
-        </mat-card>
-        <mat-card class="work-card">
-            <mat-card-header>
-                <img mat-card-avatar class="work-avatar" src="../../assets/img/Konecta-logo.png">
-                <mat-card-title>KONECTA</mat-card-title>
-                <mat-card-subtitle>On Site Help Desk</mat-card-subtitle>
-            </mat-card-header>
-            <mat-card-content>
-                <p>
-                    Analista de Soporte Técnico On Site
-                </p>
-                <p>
-                    Gestión de Incidencias. Despliegue de Sistemas. Guardia Continua. Infraestructura Computacional.
-                    Gestión de Insumos y Garantías.
-                </p>
-            </mat-card-content>
-            <mat-card-footer>
-                <p>
-                    2011 a 2020
-                </p>
-            </mat-card-footer>
-        </mat-card>
-    </section>
+  <h1>
+    EXPERIENCIA LABORAL
+    <button *ngIf="auth" class="edit-button" mat-icon-button>
+      <mat-icon>edit</mat-icon>
+    </button>
+  </h1>
+  <section class="works-card-container">
+    <mat-card *ngFor="let experience of experienceData" class="work-card">
+      <mat-card-header>
+        <img
+          mat-card-avatar
+          class="work-avatar"
+          [src]="instData[experience.institucion_id - 1]?.url_logo"
+        />
+        <mat-card-title>{{
+          instData[experience.institucion_id - 1]?.nombre
+        }}</mat-card-title>
+        <mat-card-subtitle>{{ experience.puesto }}</mat-card-subtitle>
+      </mat-card-header>
+      <mat-card-content>
+        <p>
+          {{ experience.resumen }}
+        </p>
+        <p>
+          {{ experience.descripcion }}
+        </p>
+      </mat-card-content>
+      <mat-card-footer>
+        <p>
+          <span *ngIf="!experience.fecha_fin">DESDE</span
+          ><span> {{ experience.fecha_inicio | date: "MM-yyyy" }} </span
+          ><span *ngIf="experience.fecha_fin">
+            A {{ experience.fecha_fin | date: "MM-yyyy" }}</span
+          >
+        </p>
+      </mat-card-footer>
+    </mat-card>
+  </section>
 </section>

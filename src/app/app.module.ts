@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -16,6 +17,8 @@ import { WorksComponent } from './works/works.component';
 import { AcademicComponent } from './academic/academic.component';
 import { SkillsComponent } from './skills/skills.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { LoginFormComponent } from './login-form/login-form.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -26,6 +29,7 @@ import { ProjectsComponent } from './projects/projects.component';
     AcademicComponent,
     SkillsComponent,
     ProjectsComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -36,8 +40,10 @@ import { ProjectsComponent } from './projects/projects.component';
     MatIconModule,
     MatCardModule,
     MatProgressSpinnerModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

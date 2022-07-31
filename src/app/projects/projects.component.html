@@ -1,77 +1,40 @@
 <section class="projects-container">
-    <h1>PROYECTOS PROPIOS Y EN COLABORACIÓN</h1>
-    <section class="projects-card-container">
-        <mat-card class="project-card">
-            <mat-card-header>
-                <img mat-card-avatar class="project-avatar" src="../../assets/img/react-node.png">
-                <mat-card-title>EPIRON</mat-card-title>
-                <mat-card-subtitle>REACT + NODE JS SPA</mat-card-subtitle>
-            </mat-card-header>
-            <img class="project-preview" mat-card-image src="../../assets/img/epiron.png" alt="Proyecto EPIRON">
-            <mat-card-content>
-                <p>
-                    permite integrar canales de comunicación y atención al cliente en un mismo software. Gestiona
-                    alrededor de 3 millones de usuarios en diferentes redes sociales.
-                </p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-button>PREVIEW</button>
-                <button mat-button>DEPLOYED</button>
-            </mat-card-actions>
-        </mat-card>
-        <mat-card class="project-card">
-            <mat-card-header>
-                <img mat-card-avatar class="project-avatar" src="../../assets/img/react-mui.png">
-                <mat-card-title>TODO</mat-card-title>
-                <mat-card-subtitle>REACT - MATERIAL-UI</mat-card-subtitle>
-            </mat-card-header>
-            <img class="project-preview" mat-card-image src="../../assets/img/TODO.png" alt="Proyecto Pokedex">
-            <mat-card-content>
-                <p>
-                    AGENDA DE TAREAS PENDIENTES CON PERSISTENCIA EN LOCAL STORAGE.
-                    PERMITE AGREGAR, MARCAR, EDITAR, BUSCAR Y ELIMINAR TAREAS A MODO DE AGENDA TODO
-                </p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-button>PREVIEW</button>
-                <button mat-button>DEPLOYED</button>
-            </mat-card-actions>
-        </mat-card>
-        <mat-card class="project-card">
-            <mat-card-header>
-                <img mat-card-avatar class="project-avatar" src="../../assets/img/js-css-html.png">
-                <mat-card-title>POKEDEX</mat-card-title>
-                <mat-card-subtitle>JS VANILLA</mat-card-subtitle>
-            </mat-card-header>
-            <img class="project-preview" mat-card-image src="../../assets/img/pokedex.png" alt="Proyecto Pokedex">
-            <mat-card-content>
-                <p>
-                    Pokedex personalizable con manejo de LocalStorage para una gestión mas personalizada y persistencia
-                    para los amantes de Pokemon
-                </p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-button>PREVIEW</button>
-                <button mat-button>DEPLOYED</button>
-            </mat-card-actions>
-        </mat-card>
-        <mat-card class="project-card">
-            <mat-card-header>
-                <img mat-card-avatar class="project-avatar" src="../../assets/img/js-css-html.png">
-                <mat-card-title>SUDOKU</mat-card-title>
-                <mat-card-subtitle>HTML5 CSS3 JS</mat-card-subtitle>
-            </mat-card-header>
-            <img class="project-preview" mat-card-image src="../../assets/img/sudoku.png" alt="Proyecto Pokedex">
-            <mat-card-content>
-                <p>
-                    SUDOKU DE 3X3 PARA PONER A PRUEBA EL INGENIO Y LA CONCENTRACIÓN.
-                    DESARROLLADO EN JS PURO.
-                </p>
-            </mat-card-content>
-            <mat-card-actions>
-                <button mat-button>PREVIEW</button>
-                <button mat-button>DEPLOYED</button>
-            </mat-card-actions>
-        </mat-card>
-    </section>
+  <h1>
+    PROYECTOS PROPIOS Y EN COLABORACIÓN
+    <button *ngIf="auth" class="edit-button" mat-icon-button>
+      <mat-icon>edit</mat-icon>
+    </button>
+  </h1>
+  <section class="projects-card-container">
+    <mat-card *ngFor="let project of projectData" class="project-card">
+      <mat-card-header>
+        <img mat-card-avatar class="project-avatar" [src]="project.url_logo" />
+        <mat-card-title>{{ project.titulo }}</mat-card-title>
+        <mat-card-subtitle>{{ project.tecnologia }}</mat-card-subtitle>
+      </mat-card-header>
+      <img
+        class="project-preview"
+        mat-card-image
+        [src]="project.url_img"
+        alt="Proyecto EPIRON"
+      />
+      <mat-card-content>
+        <p>
+          {{ project.descripcion }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>
+          <a [href]="project.url_preview" target="_blank">{{
+            project.url_preview && "PREVIEW"
+          }}</a>
+        </button>
+        <button mat-button>
+          <a [href]="project.url_git" target="_blank">{{
+            project.url_git && "GIT_HUB"
+          }}</a>
+        </button>
+      </mat-card-actions>
+    </mat-card>
+  </section>
 </section>

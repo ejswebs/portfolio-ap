@@ -2,23 +2,23 @@
 /* You can add global styles to this file, and also import other style files */
 
 * {
-    color: white;
-    font-family: Bebas Neue, "Helvetica Neue", sans-serif;
+  color: white;
+  font-family: Bebas Neue, "Helvetica Neue", sans-serif;
+  text-decoration: none;
 }
 
 body {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-
+  display: flex;
+  justify-content: center;
+  margin: 0;
 }
 
 .app {
-    width: 960px;
-    background-color: #000;
+  width: 960px;
+  background-color: #000;
 }
 
 h1 {
-    margin-top: 0;
-    font-size: 50px;
+  margin-top: 0;
+  font-size: 50px;
 }
