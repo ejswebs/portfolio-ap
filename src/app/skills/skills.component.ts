@@ -22,9 +22,14 @@ export class SkillsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getHabilitiesData.getData().subscribe((data) => {
-      console.log('skillsData', data);
       this.skillsData = data;
     });
+    //Se consumen datos estáticos en caso de caida de implementación del back
+    if (!this.skillsData) {
+      this.getHabilitiesData.getMock().subscribe((mock) => {
+        this.skillsData = mock;
+      });
+    }
     this.auth = this.authServ.auth;
   }
 }

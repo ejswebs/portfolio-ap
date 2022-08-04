@@ -11,4 +11,7 @@ export class HabilitiesDataService {
   getData(): Observable<any> {
     return this.http.get<any>('/api/get/habs');
   }
+  getMock(): Observable<any> {
+    return this.http.get('../../assets/mocks/habilidad.json');
+  }
 }

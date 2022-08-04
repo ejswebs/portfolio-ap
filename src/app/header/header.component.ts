@@ -22,19 +22,30 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
     this.getExperienceData.getData().subscribe((data) => {
-      console.log('data', data[0]);
       this.experienceData = data[0];
     });
     this.getPersonalData.getData().subscribe((data) => {
-      console.log('data', data);
-      this.personalData = data[0];
+      console.log(data);
+      if (data?.[0]) {
+        this.personalData = data[0];
+      } else {
+        this.getPersonalData.getMock().subscribe((mock) => {
+          this.personalData = mock[0];
+        });
+      }
     });
+    //Se consumen datos estáticos en caso de caida de implementación del back
+    if (!this.personalData) {
+      this.getPersonalData.getMock().subscribe((mock) => {
+        this.personalData = mock[0];
+      });
+    }
+    if (!this.experienceData) {
+      this.getExperienceData.getMock().subscribe((mock) => {
+        this.experienceData = mock[0];
+      });
+    }
     this.auth = this.authServ.auth;
-  }
-
-  onLogout() {
-    console.log('se dispara onLogout');
-    this.route.navigate(['/login']);
   }
 
   btnClick() {

@@ -35,10 +35,9 @@ export class LoginFormComponent implements OnInit {
     event.preventDefault;
     if (
       this.form.value.email === 'ADMIN' &&
-      this.form.value.email === 'ADMIN'
+      this.form.value.password === 'ADMIN'
     ) {
       this.authServ.login(true);
-      console.log('authServ.auth', this.authServ.auth);
       this.route.navigate(['/portfolio']);
     }
   }

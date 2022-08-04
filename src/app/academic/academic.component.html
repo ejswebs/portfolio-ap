@@ -10,9 +10,10 @@
       <mat-card-header>
         <img mat-card-avatar class="acad-avatar" [src]="academic.url_logo" />
         <mat-card-title>{{ academic.titulo }}</mat-card-title>
-        <mat-card-subtitle>{{
-          instData[academic.institucion_id - 1]?.nombre
-        }}</mat-card-subtitle>
+        <mat-card-subtitle>
+          {{ academic.tipo }} -
+          {{ instData[academic.institucion_id - 1]?.nombre }}
+        </mat-card-subtitle>
       </mat-card-header>
       <mat-card-footer>
         <p class="acad-certificate">

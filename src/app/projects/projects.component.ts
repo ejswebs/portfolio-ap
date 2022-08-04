@@ -17,9 +17,14 @@ export class ProjectsComponent implements OnInit {
 
   ngOnInit(): void {
     this.getProjectData.getData().subscribe((data) => {
-      console.log('projectData', data);
       this.projectData = data;
     });
+    //Se consumen datos estáticos en caso de caida de implementación del back
+    if (!this.projectData) {
+      this.getProjectData.getMock().subscribe((mock) => {
+        this.projectData = mock;
+      });
+    }
     this.auth = this.authServ.auth;
   }
 }

@@ -6,10 +6,13 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ExperienceDataService {
-
   constructor(private http: HttpClient) {}
 
   getData(): Observable<any> {
     return this.http.get<any>('/api/get/exps');
+  }
+
+  getMock(): Observable<any> {
+    return this.http.get('../../assets/mocks/experiencia.json');
   }
 }

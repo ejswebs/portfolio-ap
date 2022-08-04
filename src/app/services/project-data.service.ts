@@ -11,4 +11,8 @@ export class ProjectDataService {
   getData(): Observable<any> {
     return this.http.get<any>('/api/get/proys');
   }
+
+  getMock(): Observable<any> {
+    return this.http.get('../../assets/mocks/proyecto.json');
+  }
 }

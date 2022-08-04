@@ -20,13 +20,22 @@ export class AcademicComponent implements OnInit {
 
   ngOnInit(): void {
     this.getAcademyData.getData().subscribe((data) => {
-      console.log(data);
       this.academicData = data;
     });
     this.getInstitutionData.getData().subscribe((data) => {
-      console.log('instData', data);
       this.instData = data;
     });
+    //Se consumen datos estáticos en caso de caida de implementación del back
+    if (!this.academicData) {
+      this.getAcademyData.getMock().subscribe((mock) => {
+        this.academicData = mock;
+      });
+    }
+    if (!this.instData) {
+      this.getInstitutionData.getMock().subscribe((mock) => {
+        this.instData = mock;
+      });
+    }
     this.auth = this.authServ.auth;
   }
 }

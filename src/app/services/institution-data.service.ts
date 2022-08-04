@@ -12,4 +12,7 @@ export class InstitutionDataService {
   getData(): Observable<any> {
     return this.http.get<any>('/api/get/insts');
   }
+  getMock(): Observable<any> {
+    return this.http.get('../../assets/mocks/institucion.json');
+  }
 }

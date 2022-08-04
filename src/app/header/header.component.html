@@ -31,11 +31,11 @@
       </button>
     </div>
   </mat-toolbar>
-  <img class="cover" [src]="personalData.url_portada" />
+  <img class="cover" [src]="personalData?.url_portada" />
   <div class="profile-container">
-    <img class="profile-img" [src]="personalData.url_foto" />
+    <img class="profile-img" [src]="personalData?.url_foto" />
     <div class="header-name">
-      {{ personalData.nombre + " " + personalData?.apellido }}
+      {{ personalData?.nombre + " " + personalData?.apellido }}
     </div>
     <div class="header-prof">--{{ experienceData?.puesto }}--</div>
     <a

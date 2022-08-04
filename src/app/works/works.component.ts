@@ -20,13 +20,22 @@ export class WorksComponent implements OnInit {
 
   ngOnInit(): void {
     this.getExperienceData.getData().subscribe((data) => {
-      console.log('exp', data);
       this.experienceData = data;
     });
     this.getInstitutionData.getData().subscribe((data) => {
-      console.log('instData', data);
       this.instData = data;
     });
+    //Se consumen datos estáticos en caso de caida de implementación del back
+    if (!this.instData) {
+      this.getInstitutionData.getMock().subscribe((mock) => {
+        this.instData = mock;
+      });
+    }
+    if (!this.experienceData) {
+      this.getExperienceData.getMock().subscribe((mock) => {
+        this.experienceData = mock;
+      });
+    }
     this.auth = this.authServ.auth;
   }
 }
